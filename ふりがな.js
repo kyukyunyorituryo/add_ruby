@@ -12,16 +12,14 @@
 //■設定
 // ルビタイプ
 //0:青空文庫、1:pixiv、2:BCCKS、3:でんでんマークダウン、4:HTML5
-var r = 0;//ルビタイプの指定
+var r = 4;//ルビタイプの指定
 //ルビを付けるグレードの指定
 //1~6:小学１年から６年、7:中学生、8:一般向けの８段階
-var grade =1;
+var Grade =1;
 // -----------------------------------------------------------------------------
 var API_URL = "http://jlp.yahooapis.jp/FuriganaService/V1/furigana";
-var appid = "dj0zaiZpPVJqcVRmNUk2S0p1SSZzPWNvbnN1bWVyc2VjcmV0Jng9MTc-";//変更する場合はappidを取得してください
+var Appid = "dj0zaiZpPVJqcVRmNUk2S0p1SSZzPWNvbnN1bWVyc2VjcmV0Jng9MTc-";//変更する場合はappidを取得してください
 var text = document.selection.Text;
-var sentence = encodeURI(text);
-var url = API_URL + "?" +"appid=" + appid +"&grade="+ grade +"&sentence="+ sentence;
 var ruby=[
 	['｜','《','》'],//青空文庫ルビ
 	['[[rb:',' > ',']]'],//pixiv
@@ -34,13 +32,14 @@ try {
     // 「ServerXMLHTTP」オブジェクト生成
     var http = new ActiveXObject("Msxml2.ServerXMLHTTP");
     // 要求初期化
-    http.open("POST", url, false);
+    http.open("POST", API_URL, false);
      // 要求ヘッダ設定
     http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     // 要求
-    var params = { aaa: "bbb", 111: "222" };
+    var params = { appid: Appid, grade: Grade, sentence: text};
     http.send(escapeParams(params));
     // 応答結果表示
+    
 var x = http.responseText;
 //document.selection.Text = x;
 
@@ -74,7 +73,7 @@ if (dom.parseError.errorCode == 0) {
     //Alert(dom.xml);
    }
     var root = dom.documentElement;
-    // タグ名がbbbのエレメント取得
+    // タグ名がWordのエレメント取得
     var elements = root.getElementsByTagName("Word");
 //        Alert(elements.length);
         //
