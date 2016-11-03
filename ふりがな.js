@@ -74,7 +74,12 @@ if (dom.parseError.errorCode == 0) {
    }
     var root = dom.documentElement;
     //XMLエラー処理
-//あとで
+    if (root.getElementsByTagName("Message").length>0) {
+        Alert("YahooAPIエラー:JIS基本漢字以外の文字が含まれています");
+    }
+    else {
+};
+
     // タグ名がWordのエレメント取得
     var elements = root.getElementsByTagName("Word");
 //        Alert(elements.length);
@@ -90,7 +95,7 @@ if (dom.parseError.errorCode == 0) {
 	  if(child[0].text == child[1].text){
 	  str += child[0].text;
 	  } else{
-	  str += ruby[r][0] + child[0].text +ruby[r][1] + child[1].text+ruby[r][2] ;
+	  str += ruby[r][0] + child[0].text + ruby[r][1] + child[1].text + ruby[r][2] ;
 	  } break;
  	 case 4:var subwords = child[3].childNodes;
  	 		for (var j = 0; j < subwords.length; j++) {
