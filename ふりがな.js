@@ -1,11 +1,11 @@
 // -----------------------------------------------------------------------------
 // 自動ルビ振りツール
-//説明 選択した文字にルビをふる。
-//http://99nyorituryo.hatenablog.com/entry/2016/10/17/205029
+// 説明 選択した文字にルビをふる。
+//http://99nyorituryo.hatenablog.com/entry/2016/11/02/012204
 //
 // 参考
 // http://qiita.com/tnakagawa/items/3bce99d49b1aa3fc9a72
-//http://qiita.com/tnakagawa/items/4b501c21abcd39f30fbe
+// http://qiita.com/tnakagawa/items/4b501c21abcd39f30fbe
 // 使用API
 // http://developer.yahoo.co.jp/webapi/jlp/furigana/v1/furigana.html
 // -----------------------------------------------------------------------------
@@ -73,6 +73,8 @@ if (dom.parseError.errorCode == 0) {
     //Alert(dom.xml);
    }
     var root = dom.documentElement;
+    //XMLエラー処理
+//あとで
     // タグ名がWordのエレメント取得
     var elements = root.getElementsByTagName("Word");
 //        Alert(elements.length);
@@ -108,5 +110,11 @@ if (dom.parseError.errorCode == 0) {
 		 }  
 	  break;
 	}
+            }
+//XMLエラーの場合の処理
+if (str.length==0){
+//Alert(elements.length);
 }
+else{
 document.selection.Text = str;
+}
