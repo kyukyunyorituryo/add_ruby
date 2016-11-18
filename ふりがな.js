@@ -19,7 +19,7 @@ var Grade =1;
 // -----------------------------------------------------------------------------
 var API_URL = "http://jlp.yahooapis.jp/FuriganaService/V1/furigana";
 var Appid = "dj0zaiZpPVJqcVRmNUk2S0p1SSZzPWNvbnN1bWVyc2VjcmV0Jng9MTc-";//変更する場合はappidを取得してください
-var text = document.selection.Text;
+var Sentence = document.selection.Text;
 var ruby=[
 	['｜','《','》'],//青空文庫ルビ
 	['[[rb:',' > ',']]'],//pixiv
@@ -27,7 +27,12 @@ var ruby=[
 	['{','|','}'],//でんでんマークダウン
 	['<ruby>','<rt>','</rt></ruby>'],//HTML5
 	];
-var str ="";//出力される文字
+var str = "";//出力される文字
+
+var x = yahooapi(Appid, Grade, Sentence, API_URL);
+var dom = xmlparse(x);
+str = addruby(ruby, r,dom);
+function yahooapi(Appid,Grade,Sentence,API_URL){
 try {
     // 「ServerXMLHTTP」オブジェクト生成
     var http = new ActiveXObject("Msxml2.ServerXMLHTTP");
@@ -36,7 +41,7 @@ try {
      // 要求ヘッダ設定
     http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     // 要求
-    var params = { appid: Appid, grade: Grade, sentence: text};
+    var params = { appid: Appid, grade: Grade, sentence: Sentence};
     http.send(escapeParams(params));
     // 応答結果表示
     
@@ -47,7 +52,6 @@ var x = http.responseText;
     // エラーの場合
     Alert("リクエスト失敗");
 }
-
 function escapeParams(params) {
     var param = "";
     // パラメータ数分ループ
@@ -62,6 +66,9 @@ function escapeParams(params) {
     }
     return param;
 }
+return x;
+}
+function xmlparse(x){
 // DOMオブジェクト生成
 var dom = new ActiveXObject("Msxml2.DOMDocument");
 // 同期化
@@ -71,52 +78,58 @@ dom.loadXML(x);
 if (dom.parseError.errorCode == 0) {
     // XML出力
     //Alert(dom.xml);
-   }
+}
+return dom;
+}
+function addruby(ruby, r, dom) {    // タグ名がWordのエレメント取得
     var root = dom.documentElement;
-    //XMLエラー処理
-    if (root.getElementsByTagName("Message").length>0) {
+    var elements = root.getElementsByTagName("Word");
+    //        Alert(elements.length);
+    //
+    for (var i = 0; i < elements.length; i++) {
+        // エレメント取得
+        var element = elements[i];
+        // 子取得
+        var child = element.childNodes;
+        switch (element.childNodes.length) {
+            case 1: str += child[0].text; break;
+            case 3:
+                if (child[0].text == child[1].text) {
+                    str += child[0].text;
+                } else {
+                    str += ruby[r][0] + child[0].text + ruby[r][1] + child[1].text + ruby[r][2];
+                } break;
+            case 4: var subwords = child[3].childNodes;
+                for (var j = 0; j < subwords.length; j++) {
+                    var subword = subwords[j];
+                    var subchild = subword.childNodes;
+                    switch (subchild.length) {
+                        case 1: str += subchild[0].text; break;
+                        case 3:
+                            if (subchild[0].text == subchild[1].text) {
+                                str += subchild[0].text;
+                            } else {
+                                str += ruby[r][0] + subchild[0].text + ruby[r][1] + subchild[1].text + ruby[r][2];
+                            }
+                            break;
+
+                    }
+                }
+                break;
+        }
+    }
+    return str;
+}
+    var root = dom.documentElement;
+//XMLエラー処理
+    if (Sentence == "") { Alert("文字が選択されていません");}
+    else if (root.getElementsByTagName("Message").length>0) {
         Alert("YahooAPIエラー:JIS基本漢字以外の文字が含まれています");
     }
     else {
 };
 
-    // タグ名がWordのエレメント取得
-    var elements = root.getElementsByTagName("Word");
-//        Alert(elements.length);
-        //
-            for (var i = 0; i < elements.length; i++) {
-        // エレメント取得
-        var element = elements[i];
-        // 子取得
-        var child = element.childNodes;
-       switch (element.childNodes.length){
-	case 1: str += child[0].text; break;
-	case 3: 
-	  if(child[0].text == child[1].text){
-	  str += child[0].text;
-	  } else{
-	  str += ruby[r][0] + child[0].text + ruby[r][1] + child[1].text + ruby[r][2] ;
-	  } break;
- 	 case 4:var subwords = child[3].childNodes;
- 	 		for (var j = 0; j < subwords.length; j++) {
- 	       var subword = subwords[j];
-	         var subchild = subword.childNodes;
-	              switch (subchild.length){
-			case 1: str += subchild[0].text; break;
-			case 3: 
-				  if(subchild[0].text == subchild[1].text){
-				  str += subchild[0].text;
-				  } else{
-				  str += ruby[r][0] + subchild[0].text + ruby[r][1] + subchild[1].text + ruby[r][2];
-				  }
-				  break;
-				  
-			}
-		 }  
-	  break;
-	}
-            }
-//XMLエラーの場合の処理
+    //XMLエラーの場合の処理
 if (str.length==0){
 //Alert(elements.length);
 }
