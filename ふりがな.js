@@ -1,13 +1,13 @@
 // -----------------------------------------------------------------------------
 // 自動ルビ振りツール
 // 説明 選択した文字にルビをふる。
-//http://99nyorituryo.hatenablog.com/entry/2016/11/02/012204
+//https://99nyorituryo.hatenablog.com/entry/2016/11/02/012204
 //
 // 参考
-// http://qiita.com/tnakagawa/items/3bce99d49b1aa3fc9a72
-// http://qiita.com/tnakagawa/items/4b501c21abcd39f30fbe
+// https://qiita.com/tnakagawa/items/3bce99d49b1aa3fc9a72
+// https://qiita.com/tnakagawa/items/4b501c21abcd39f30fbe
 // 使用API
-// http://developer.yahoo.co.jp/webapi/jlp/furigana/v1/furigana.html
+// https://developer.yahoo.co.jp/webapi/jlp/furigana/v1/furigana.html
 // -----------------------------------------------------------------------------
 //■設定
 // ルビタイプ
@@ -18,7 +18,7 @@ var r = 5;//ルビタイプの指定
 //1~6:小学１年から６年、7:中学生、8:一般向けの８段階
 var Grade =1;
 // -----------------------------------------------------------------------------
-var API_URL = "http://jlp.yahooapis.jp/FuriganaService/V1/furigana";
+var API_URL = "https://jlp.yahooapis.jp/FuriganaService/V1/furigana";
 var Appid = "dj0zaiZpPVJqcVRmNUk2S0p1SSZzPWNvbnN1bWVyc2VjcmV0Jng9MTc-";//変更する場合はappidを取得してください
 var Sentence = document.selection.Text;
 var ruby=[
