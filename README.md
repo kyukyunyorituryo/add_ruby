@@ -5,7 +5,8 @@ Yahooの[ルビ振りAPI](https://developer.yahoo.co.jp/webapi/jlp/furigana/v1/f
 
 ## 説明
 選択した文字に自動でふりがなを付ける、自動ルビ振りマクロ。詳細な説明は下記ページにて。
-https://99nyorituryo.hatenablog.com/entry/2016/10/17/205029
+
+https://99nyorituryo.hatenablog.com/entry/2016/11/02/012204
 
 ## 設定
 ###  ルビタイプ
