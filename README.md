@@ -21,3 +21,9 @@ var r = 0;//ルビタイプの指定数値を変えることでルビのタイ�
 var grade =1;
 
 同様に数値を変えることで設定を変える。1の場合はすべての漢字にルビをふる。
+
+## アンドロイドアプリ版
+　アンドロイドアプリ化しました。
+[グーグルプレイ「ふりがな付与」](https://play.google.com/store/apps/details?id=com.websarva.wings.android.frigana)
+
+[Amazonアンドロイドアプリ「ふりがな付与」](https://www.amazon.co.jp/exec/obidos/ASIN/B07TBFT3BG/99hatena-22/)
