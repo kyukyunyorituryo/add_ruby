@@ -1,6 +1,6 @@
 # add_ruby
 選択した文字にルビを付ける[Meryマクロ](https://www.haijin-boys.com/wiki/)。
-Yahooの[ルビ振りAPI](https://developer.yahoo.co.jp/webapi/jlp/furigana/v1/furigana.html)を利用して自動でルビを振ります。
+Yahooの[ルビ振りAPI](https://developer.yahoo.co.jp/webapi/jlp/furigana/v2/furigana.html)を利用して自動でルビを振ります。
 
 
 ## 説明
