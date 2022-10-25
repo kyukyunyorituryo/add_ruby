@@ -3,9 +3,17 @@
 Yahooの[ルビ振りAPI](https://developer.yahoo.co.jp/webapi/jlp/furigana/v2/furigana.html)を利用して自動でルビを振ります。
 
 
+
 ## 説明
+
+
 選択した文字に自動でふりがなを付ける、自動ルビ振りマクロ。詳細な説明は下記ページにて。
 
+youtubeでの説明
+
+[![ウェブ小説の自動ルビ振りのやり方](http://img.youtube.com/vi/G1RC-Xbu-qg/0.jpg)](https://www.youtube.com/watch?v=G1RC-Xbu-qg)
+
+サイトでの説明
 https://99nyorituryo.hatenablog.com/entry/2016/11/02/012204
 
 ## 設定
