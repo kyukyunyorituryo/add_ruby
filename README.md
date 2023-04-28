@@ -2,6 +2,8 @@
 選択した文字にルビを付ける[Meryマクロ](https://www.haijin-boys.com/wiki/)。
 Yahooの[ルビ振りAPI](https://developer.yahoo.co.jp/webapi/jlp/furigana/v2/furigana.html)を利用して自動でルビを振ります。
 
+[Webサービス by Yahoo! JAPAN](https://developer.yahoo.co.jp/sitemap/)
+
 
 
 ## 説明
