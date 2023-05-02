@@ -38,3 +38,13 @@ var grade =1;
 [グーグルプレイ「ふりがな付与」](https://play.google.com/store/apps/details?id=com.websarva.wings.android.frigana)
 
 [Amazonアンドロイドアプリ「ふりがな付与」](https://www.amazon.co.jp/exec/obidos/ASIN/B07TBFT3BG/99hatena-22/)
+## Java版
+Windows、Linux、MacなどのJavaランタイムで動作
+
+
+インストール
+
+https://github.com/kyukyunyorituryo/add_ruby/releases
+
+
+動作要件：Java17以上が必要
