@@ -1,4 +1,8 @@
-# add_ruby
+# 自動ルビ振り
+選択した文字にルビを付けるソフトウェア、Meryマクロ、アンドロイド版、Java版の３種類ある
+
+## 自動ルビ振りマクロ
+
 選択した文字にルビを付ける[Meryマクロ](https://www.haijin-boys.com/wiki/)。
 Yahooの[ルビ振りAPI](https://developer.yahoo.co.jp/webapi/jlp/furigana/v2/furigana.html)を利用して自動でルビを振ります。
 
@@ -6,7 +10,7 @@ Yahooの[ルビ振りAPI](https://developer.yahoo.co.jp/webapi/jlp/furigana/v2/f
 
 
 
-## 説明
+###  説明
 
 
 選択した文字に自動でふりがなを付ける、自動ルビ振りマクロ。詳細な説明は下記ページにて。
@@ -18,14 +22,14 @@ youtubeでの説明
 サイトでの説明
 https://99nyorituryo.hatenablog.com/entry/2016/11/02/012204
 
-## 設定
-###  ルビタイプ
+###  設定
+####  ルビタイプ
  
 0:青空文庫、1:pixiv、2:BCCKS、3:でんでんマークダウン、4:HTML5、5:LaTeX、6:Re:VIEW、7:simple（ワード等）
 
 var r = 0;//ルビタイプの指定数値を変えることでルビのタイプを選ぶことができる。
 
-### ルビを付けるグレードの指定
+#### ルビを付けるグレードの指定
 1~6:小学１年から６年、7:中学生、8:一般向けの８段階
 
 var grade =1;
